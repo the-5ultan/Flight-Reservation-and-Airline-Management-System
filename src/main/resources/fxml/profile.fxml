@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aeroreserve.controller.ProfileController">
+    <content>
+        <VBox spacing="18">
+            <padding><Insets bottom="30" left="30" right="30" top="26" /></padding>
+            <children>
+                <VBox spacing="4">
+                    <children>
+                        <Label styleClass="page-title" text="Profile &amp; security" />
+                        <Label styleClass="page-subtitle" text="Keep your contact details and password up to date" />
+                    </children>
+                </VBox>
+
+                <VBox styleClass="glass-card" spacing="16" maxWidth="760">
+                    <padding><Insets top="22" right="22" bottom="22" left="22" /></padding>
+                    <children>
+                        <Label styleClass="section-title" text="Personal details" />
+                        <GridPane hgap="16" vgap="14">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50" />
+                                <ColumnConstraints percentWidth="50" />
+                            </columnConstraints>
+                            <children>
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label styleClass="field-label" text="FULL NAME" />
+                                        <TextField fx:id="nameField" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label styleClass="field-label" text="EMAIL (CANNOT BE CHANGED)" />
+                                        <TextField fx:id="emailField" styleClass="glass-input" disable="true" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label styleClass="field-label" text="PHONE" />
+                                        <TextField fx:id="phoneField" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label styleClass="field-label" text="NATIONALITY" />
+                                        <TextField fx:id="nationalityField" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <children>
+                                        <Label styleClass="field-label" text="PASSPORT NUMBER" />
+                                        <TextField fx:id="passportField" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <children>
+                                        <Label styleClass="field-label" text="ACCOUNT ROLE" />
+                                        <TextField fx:id="roleField" styleClass="glass-input" disable="true" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                        <HBox>
+                            <children>
+                                <Label fx:id="profileMessage" styleClass="form-message" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Save profile" styleClass="btn-primary" onAction="#handleSaveProfile" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <VBox styleClass="glass-card" spacing="16" maxWidth="760">
+                    <padding><Insets top="22" right="22" bottom="22" left="22" /></padding>
+                    <children>
+                        <Label styleClass="section-title" text="Change password" />
+                        <GridPane hgap="16" vgap="14">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="33" />
+                                <ColumnConstraints percentWidth="33" />
+                                <ColumnConstraints percentWidth="34" />
+                            </columnConstraints>
+                            <children>
+                                <VBox spacing="5" GridPane.columnIndex="0">
+                                    <children>
+                                        <Label styleClass="field-label" text="CURRENT PASSWORD" />
+                                        <PasswordField fx:id="currentPassword" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="1">
+                                    <children>
+                                        <Label styleClass="field-label" text="NEW PASSWORD" />
+                                        <PasswordField fx:id="newPassword" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="2">
+                                    <children>
+                                        <Label styleClass="field-label" text="CONFIRM NEW PASSWORD" />
+                                        <PasswordField fx:id="confirmPassword" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                        <HBox>
+                            <children>
+                                <Label fx:id="passwordMessage" styleClass="form-message" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Update password" styleClass="btn-secondary"
+                                        onAction="#handleChangePassword" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

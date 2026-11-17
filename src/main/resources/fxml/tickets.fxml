@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListCell?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aeroreserve.controller.TicketController">
+    <content>
+        <VBox spacing="18">
+            <padding><Insets bottom="30" left="30" right="30" top="26" /></padding>
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <VBox spacing="4">
+                            <children>
+                                <Label styleClass="page-title" text="My tickets" />
+                                <Label styleClass="page-subtitle" text="Electronic tickets for all your reservations" />
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="printButton" text="Print ticket" styleClass="btn-secondary, btn-small"
+                                onAction="#handlePrint" />
+                        <Button fx:id="exportButton" text="Export ticket" styleClass="btn-primary, btn-small"
+                                onAction="#handleExport" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="16" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox styleClass="glass-card" spacing="12" prefWidth="300" VBox.vgrow="ALWAYS">
+                            <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                            <children>
+                                <Label styleClass="section-title" text="Your reservations" />
+                                <ListView fx:id="ticketList" VBox.vgrow="ALWAYS" prefHeight="520" />
+                            </children>
+                        </VBox>
+                        <VBox styleClass="glass-card" spacing="12" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                            <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                            <children>
+                                <Label fx:id="previewTitle" styleClass="section-title" text="Select a ticket to preview" />
+                                <TextArea fx:id="ticketPreview" editable="false" wrapText="true"
+                                          VBox.vgrow="ALWAYS" prefHeight="520" styleClass="ticket-preview" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

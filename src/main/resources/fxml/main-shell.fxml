@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" styleClass="app-root"
+           fx:controller="com.aeroreserve.controller.ShellController">
+
+    <children>
+        <BorderPane>
+            <left>
+                <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="252" spacing="4">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <padding>
+                                <Insets top="26" right="20" bottom="24" left="20" />
+                            </padding>
+                            <children>
+                                <StackPane alignment="CENTER" prefWidth="40" prefHeight="40"
+                                           styleClass="brand-mark">
+                                    <children>
+                                        <Text styleClass="brand-glyph" text="✈" />
+                                    </children>
+                                </StackPane>
+                                <VBox spacing="2">
+                                    <children>
+                                        <Label styleClass="sidebar-brand" text="AeroReserve" />
+                                        <Label styleClass="sidebar-tagline" text="AIRLINE OPERATIONS" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <Separator>
+                            <padding>
+                                <Insets left="20" right="20" bottom="10" />
+                            </padding>
+                        </Separator>
+
+                        <Label styleClass="nav-section" text="WORKSPACE">
+                            <padding>
+                                <Insets left="24" top="6" bottom="6" />
+                            </padding>
+                        </Label>
+
+                        <Button fx:id="navDashboard" text="   ◈   Dashboard" styleClass="nav-item"
+                                onAction="#handleDashboard" />
+
+                        <VBox fx:id="adminNav" spacing="3">
+                            <children>
+                                <Button fx:id="navFlights" text="   ✈   Flights" styleClass="nav-item"
+                                        onAction="#handleFlights" />
+                                <Button fx:id="navAircraft" text="   ▤   Aircraft" styleClass="nav-item"
+                                        onAction="#handleAircraft" />
+                                <Button fx:id="navBookingsAdmin" text="   ▣   All bookings" styleClass="nav-item"
+                                        onAction="#handleBookings" />
+                                <Button fx:id="navPassengers" text="   ☺   Passengers" styleClass="nav-item"
+                                        onAction="#handlePassengers" />
+                                <Button fx:id="navReports" text="   ◫   Reports" styleClass="nav-item"
+                                        onAction="#handleReports" />
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="passengerNav" spacing="3">
+                            <children>
+                                <Button fx:id="navSearch" text="   ⌕   Search flights" styleClass="nav-item"
+                                        onAction="#handleSearch" />
+                                <Button fx:id="navBookings" text="   ▣   My bookings" styleClass="nav-item"
+                                        onAction="#handleBookings" />
+                                <Button fx:id="navTickets" text="   ▧   My tickets" styleClass="nav-item"
+                                        onAction="#handleTickets" />
+                            </children>
+                        </VBox>
+
+                        <Label styleClass="nav-section" text="ACCOUNT">
+                            <padding>
+                                <Insets left="24" top="18" bottom="6" />
+                            </padding>
+                        </Label>
+                        <Button fx:id="navProfile" text="   ⚙   Profile &amp; security" styleClass="nav-item"
+                                onAction="#handleProfile" />
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <VBox styleClass="glass-subtle" spacing="6">
+                            <padding>
+                                <Insets top="14" right="14" bottom="14" left="14" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets top="0" right="16" bottom="16" left="16" />
+                            </VBox.margin>
+                            <children>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <children>
+                                        <StackPane alignment="CENTER" styleClass="avatar">
+                                            <children>
+                                                <Text fx:id="avatarText" styleClass="avatar-text" text="AR" />
+                                            </children>
+                                        </StackPane>
+                                        <VBox spacing="2">
+                                            <children>
+                                                <Label fx:id="sidebarName" styleClass="section-title" text="User" />
+                                                <Label fx:id="sidebarRole" styleClass="sidebar-tagline" text="Role" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Button fx:id="logoutButton" text="Sign out" styleClass="btn-ghost, btn-small"
+                                        maxWidth="1.7976931348623157E308" onAction="#handleLogout" />
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </left>
+
+            <top>
+                <HBox fx:id="headerBar" styleClass="header-bar" alignment="CENTER_LEFT" spacing="16"
+                      prefHeight="78">
+                    <padding>
+                        <Insets right="28" left="28" />
+                    </padding>
+                    <children>
+                        <VBox spacing="3">
+                            <children>
+                                <Label fx:id="headerTitle" styleClass="header-title" text="Dashboard" />
+                                <Label fx:id="headerSubtitle" styleClass="header-subtitle"
+                                       text="Welcome back to AeroReserve" />
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="clockLabel" styleClass="sidebar-tagline" text="" />
+                        <StackPane alignment="CENTER" styleClass="avatar">
+                            <children>
+                                <Text fx:id="headerAvatarText" styleClass="avatar-text" text="AR" />
+                            </children>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <children>
+                                <Label fx:id="headerName" styleClass="section-title" text="User" />
+                                <Label fx:id="headerRole" styleClass="pill, pill-info" text="Role" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </top>
+
+            <center>
+                <StackPane fx:id="contentArea" styleClass="content-area" />
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>

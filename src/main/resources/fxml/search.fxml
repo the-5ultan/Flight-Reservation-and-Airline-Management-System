@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aeroreserve.controller.FlightSearchController">
+    <content>
+        <VBox spacing="18">
+            <padding><Insets bottom="30" left="30" right="30" top="26" /></padding>
+            <children>
+                <VBox spacing="4">
+                    <children>
+                        <Label styleClass="page-title" text="Find your next flight" />
+                        <Label styleClass="page-subtitle" text="Search the live schedule, filter results and choose your seats" />
+                    </children>
+                </VBox>
+
+                <VBox styleClass="glass-card" spacing="14">
+                    <padding><Insets top="20" right="20" bottom="20" left="20" /></padding>
+                    <children>
+                        <GridPane hgap="14" vgap="12">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                            </columnConstraints>
+                            <children>
+                                <VBox spacing="5" GridPane.columnIndex="0">
+                                    <children>
+                                        <Label styleClass="field-label" text="FROM" />
+                                        <TextField fx:id="fromField" promptText="JFK" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="1">
+                                    <children>
+                                        <Label styleClass="field-label" text="TO" />
+                                        <TextField fx:id="toField" promptText="LHR" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="2">
+                                    <children>
+                                        <Label styleClass="field-label" text="TRAVEL DATE" />
+                                        <DatePicker fx:id="travelDate" maxWidth="1.7976931348623157E308" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="3">
+                                    <children>
+                                        <Label styleClass="field-label" text="PASSENGERS" />
+                                        <ComboBox fx:id="passengerCount" maxWidth="1.7976931348623157E308" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" GridPane.columnIndex="4">
+                                    <children>
+                                        <Label styleClass="field-label" text="MAX FARE (USD)" />
+                                        <TextField fx:id="maxPriceField" promptText="Any" styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+                        <HBox alignment="CENTER_LEFT" spacing="12">
+                            <children>
+                                <Label styleClass="field-label" text="SORT BY" />
+                                <ComboBox fx:id="sortCombo" />
+                                <Label styleClass="field-label" text="MIN SEATS" />
+                                <TextField fx:id="minSeatsField" promptText="Any" prefWidth="70" styleClass="glass-input" />
+                                <Label styleClass="field-label" text="STATUS" />
+                                <ComboBox fx:id="statusCombo" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button text="Clear" styleClass="btn-ghost, btn-small" onAction="#handleClear" />
+                                <Button text="⌕  Search flights" styleClass="btn-primary" onAction="#handleSearch" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <VBox styleClass="glass-card" spacing="12" VBox.vgrow="ALWAYS">
+                    <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
+                                <Label styleClass="section-title" text="Available flights" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label fx:id="resultCount" styleClass="muted-text" text="" />
+                            </children>
+                        </HBox>
+                        <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS" prefHeight="440">
+                            <columns>
+                                <TableColumn fx:id="colFlight" text="FLIGHT" minWidth="90" />
+                                <TableColumn fx:id="colRoute" text="ROUTE" minWidth="120" />
+                                <TableColumn fx:id="colDeparture" text="DEPARTURE" minWidth="160" />
+                                <TableColumn fx:id="colArrival" text="ARRIVAL" minWidth="160" />
+                                <TableColumn fx:id="colAircraft" text="AIRCRAFT" minWidth="150" />
+                                <TableColumn fx:id="colFare" text="FROM" minWidth="90" />
+                                <TableColumn fx:id="colSeats" text="SEATS" minWidth="80" />
+                                <TableColumn fx:id="colStatus" text="STATUS" minWidth="100" />
+                                <TableColumn fx:id="colActions" text="" minWidth="130" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

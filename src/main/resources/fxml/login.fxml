@@ -9,6 +9,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -54,8 +55,14 @@
                                 <VBox spacing="6">
                                     <children>
                                         <Label styleClass="field-label" text="PASSWORD" />
-                                        <PasswordField fx:id="passwordField" promptText="Enter your password"
-                                                       styleClass="glass-input" onAction="#handleLogin" />
+                                        <StackPane>
+                                            <children>
+                                                <PasswordField fx:id="passwordField" promptText="Enter your password"
+                                                               styleClass="glass-input" onAction="#handleLogin" />
+                                                <TextField fx:id="visiblePasswordField" promptText="Enter your password"
+                                                           styleClass="glass-input" visible="false" managed="false" />
+                                            </children>
+                                        </StackPane>
                                     </children>
                                 </VBox>
                             </children>

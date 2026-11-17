@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" styleClass="app-root"
+           fx:controller="com.aeroreserve.controller.SeatSelectionController">
+    <children>
+        <VBox spacing="16">
+            <padding><Insets bottom="22" left="22" right="22" top="20" /></padding>
+            <children>
+                <HBox alignment="CENTER_LEFT">
+                    <children>
+                        <VBox spacing="3">
+                            <children>
+                                <Label styleClass="page-title" text="Choose your seats" />
+                                <Label fx:id="flightInfo" styleClass="page-subtitle" text="" />
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button text="Close" styleClass="btn-ghost, btn-small" onAction="#handleClose" />
+                    </children>
+                </HBox>
+
+                <HBox spacing="16" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox styleClass="glass-card" spacing="12" HBox.hgrow="ALWAYS">
+                            <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="16">
+                                    <children>
+                                        <Label styleClass="section-title" text="Seat map" />
+                                        <Label styleClass="seat-legend" text="● Economy" />
+                                        <Label styleClass="seat-legend" text="● Business" />
+                                        <Label styleClass="seat-legend" text="● First class" />
+                                        <Label styleClass="seat-legend" text="● Occupied" />
+                                        <Label styleClass="seat-legend" text="● Selected" />
+                                    </children>
+                                </HBox>
+                                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" prefHeight="500">
+                                    <content>
+                                        <StackPane fx:id="seatGridHolder" alignment="TOP_CENTER">
+                                            <padding><Insets top="6" bottom="6" /></padding>
+                                        </StackPane>
+                                    </content>
+                                </ScrollPane>
+                                <Label fx:id="seatHint" styleClass="muted-text"
+                                       text="Tap an available seat to select it. Hover for cabin and position details." />
+                            </children>
+                        </VBox>
+
+                        <VBox styleClass="glass-card" spacing="12" prefWidth="340">
+                            <padding><Insets top="18" right="18" bottom="18" left="18" /></padding>
+                            <children>
+                                <Label styleClass="section-title" text="Reservation summary" />
+                                <VBox styleClass="glass-subtle" spacing="8">
+                                    <padding><Insets top="12" right="12" bottom="12" left="12" /></padding>
+                                    <children>
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="muted-text" text="Selected seats" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="selectedSeatsLabel" styleClass="section-title" text="None" />
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="muted-text" text="Cabin" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="cabinLabel" styleClass="section-title" text="—" />
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="muted-text" text="Fare per seat" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="farePerSeatLabel" styleClass="section-title" text="\$0.00" />
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label styleClass="muted-text" text="Total" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="totalLabel" styleClass="stat-value" text="\$0.00" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <Label styleClass="field-label" text="PAYMENT METHOD" />
+                                <ComboBox fx:id="paymentCombo" maxWidth="1.7976931348623157E308" />
+
+                                <VBox fx:id="cardPane" spacing="8">
+                                    <children>
+                                        <TextField fx:id="cardHolderField" promptText="Card holder name" styleClass="glass-input" />
+                                        <TextField fx:id="cardNumberField" promptText="Card number (simulated)" styleClass="glass-input" />
+                                        <HBox spacing="8">
+                                            <children>
+                                                <TextField fx:id="cardExpiryField" promptText="MM/YY" prefWidth="100"
+                                                           styleClass="glass-input" />
+                                                <Label styleClass="muted-text" text="No real charge is made" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <VBox fx:id="cashPane" spacing="8" visible="false" managed="false">
+                                    <children>
+                                        <TextField fx:id="cashCounterField" promptText="Counter location, e.g. Terminal 4"
+                                                   styleClass="glass-input" />
+                                    </children>
+                                </VBox>
+
+                                <Label fx:id="messageLabel" styleClass="form-message" visible="false" managed="false"
+                                       wrapText="true" />
+                                <Region VBox.vgrow="ALWAYS" />
+                                <Button fx:id="confirmButton" text="Confirm &amp; pay" styleClass="btn-primary, btn-large"
+                                        maxWidth="1.7976931348623157E308" onAction="#handleConfirm" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>

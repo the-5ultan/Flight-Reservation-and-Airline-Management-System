@@ -660,3 +660,15 @@
     -fx-text-fill: #e8f0ff;
     -fx-font-size: 11px;
 }
+
+.ticket-preview {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #dbe7ff;
+    -fx-control-inner-background: rgba(12, 22, 44, 0.72);
+    -fx-background-color: rgba(16, 28, 56, 0.55);
+    -fx-border-color: rgba(140, 180, 255, 0.18);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 14;
+}

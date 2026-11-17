@@ -36,9 +36,10 @@ public class UserRepository extends SerializedRepository<User> {
         put(user.getUserId(), user);
     }
 
-    public List<User> findAllPassengers() {
+    public List<com.aeroreserve.model.Passenger> findAllPassengers() {
         return findAll().stream()
-                .filter(user -> user.getRole() == com.aeroreserve.enums.UserRole.PASSENGER)
+                .filter(com.aeroreserve.model.Passenger.class::isInstance)
+                .map(com.aeroreserve.model.Passenger.class::cast)
                 .toList();
     }
 }
